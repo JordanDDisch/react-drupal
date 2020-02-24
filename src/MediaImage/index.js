@@ -19,7 +19,7 @@ const MediaImage = (props) => {
     entityType,
     entityBundle,
     baseURL,
-    cloudinary,
+    cloudinaryURL,
     authorization,
     fileUUIDs,
     onChange,
@@ -62,7 +62,7 @@ const MediaImage = (props) => {
       {media.map(image => <ImagePreview 
         key={image.name}
         name={image.name}
-        image={cloudinary + baseURL + image.imageURL}
+        image={cloudinaryURL + baseURL + image.imageURL}
         deleteImage={() => {
           (new FileEntity(image.drupalUUID)).delete()
           const newMedia = media.filter(item => item.drupalUUID != image.drupalUUID)
